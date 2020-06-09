@@ -216,7 +216,12 @@ function host:dispatch(...)
 	else
 		-- response
 		local session = assert(header_tmp.session, "session not found")
-		local response = assert(self.__session[session], "Unknown session")
+
+		if self.__session[session] == nil then
+			return
+		end
+
+		local response = assert(self.__session[session], "Unknown session:" .. session)
 		self.__session[session] = nil
 		if response == true then
 			return "RESPONSE", session, nil, header.ud
