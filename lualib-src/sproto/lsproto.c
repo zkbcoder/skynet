@@ -388,7 +388,8 @@ decode(const struct sproto_arg *args) {
 			int64_t v = *(int64_t*)args->value;
 			lua_Number vn = (lua_Number)v;
 			vn /= args->extra;
-			lua_pushnumber(L, vn);
+			// lua_pushnumber(L, vn);
+			lua_pushinteger(L, vn);
 		} else {
 			int64_t v = *(int64_t*)args->value;
 			lua_pushinteger(L, v);
