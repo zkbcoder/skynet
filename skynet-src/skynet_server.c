@@ -378,10 +378,8 @@ handle_exit(struct skynet_context * context, uint32_t handle) {
 	if (handle == 0) {
 		handle = context->handle;
 		skynet_error(context, "KILL self");
-		printf("KILL self:%0x\n", handle);
 	} else {
 		skynet_error(context, "KILL :%0x", handle);
-		printf("KILL :%0x\n", handle);
 	}
 	if (G_NODE.monitor_exit) {
 		skynet_send(context,  handle, G_NODE.monitor_exit, PTYPE_CLIENT, 0, NULL, 0);
