@@ -68,4 +68,13 @@ function sharedata.deepcopy(name, ...)
 	return ret
 end
 
+function sharedata.cacheKeys()
+	local retList = {}
+	for key, _ in pairs(cache) do
+		retList[#retList + 1] = key
+	end
+
+	return retList
+end
+
 return sharedata
