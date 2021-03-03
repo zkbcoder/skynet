@@ -61,7 +61,6 @@ LUA_CLIB_SKYNET = \
   lua-mongo.c \
   lua-netpack.c \
   lua-memory.c \
-  lua-profile.c \
   lua-multicast.c \
   lua-cluster.c \
   lua-crypt.c lsha1.c \
@@ -102,7 +101,7 @@ $(LUA_CLIB_PATH)/skynet.so : $(addprefix lualib-src/,$(LUA_CLIB_SKYNET)) | $(LUA
 	$(CC) $(CFLAGS) $(SHARED) $^ -o $@ -Iskynet-src -Iservice-src -Ilualib-src
 
 $(LUA_CLIB_PATH)/bson.so : lualib-src/lua-bson.c | $(LUA_CLIB_PATH)
-	$(CC) $(CFLAGS) $(SHARED) -Iskynet-src $^ -o $@ -Iskynet-src
+	$(CC) $(CFLAGS) $(SHARED) -Iskynet-src $^ -o $@
 
 $(LUA_CLIB_PATH)/md5.so : 3rd/lua-md5/md5.c 3rd/lua-md5/md5lib.c 3rd/lua-md5/compat-5.2.c | $(LUA_CLIB_PATH)
 	$(CC) $(CFLAGS) $(SHARED) -I3rd/lua-md5 $^ -o $@ 
